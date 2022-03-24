@@ -5,6 +5,9 @@ public class ZipHolod {
     private boolean аvailability;
 
     public ZipHolod(String name, String manufacturer, int price, boolean аvailability) {
+        if (name==null|| manufacturer==null){
+            throw new IllegalArgumentException();
+        }
         this.name = name;
         this.manufacturer = manufacturer;
         this.price = price;

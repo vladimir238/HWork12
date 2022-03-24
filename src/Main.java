@@ -5,16 +5,16 @@ public class Main {
 
         String nameSearch = "Термостат";
         ZipHolod zip1 = new ZipHolod("Термостат", "Danfoss", 350, false);
-        ZipHolod zip2 = new ZipHolod("Термостат", "Danfoss", 350, false);
-        ZipHolod zip3 = new ZipHolod("Термостат", "Atea", 400, false);
-        ZipHolod zip4 = new ZipHolod("Термостат", "Atea", 250, false);
-        ZipHolod zip5 = new ZipHolod("Компрессор", "Secop", 3600, false);
+        ZipHolod zip2 = new ZipHolod("Термостат", "Danfoss", 350, true);
+        ZipHolod zip3 = new ZipHolod("Термостат", "Atea", 400, true);
+        ZipHolod zip4 = new ZipHolod("Термостат", "Atea", 250, true);
+        ZipHolod zip5 = new ZipHolod("Компрессор", "Secop", 3600, true);
         ZipHolod zip6 = new ZipHolod("Компрессор", "Secop", 3600, false);
-        ZipHolod zip7 = new ZipHolod("Компрессор", "Danfoss", 3100, false);
+        ZipHolod zip7 = new ZipHolod("Компрессор", "Danfoss", 3100, true);
         ZipHolod zip8 = new ZipHolod("Компрессор", "Danfoss", 2800, false);
-        ZipHolod zip9 = new ZipHolod("Компрессор", "Danfoss", 4500, false);
-        ZipHolod zip10 = new ZipHolod("Таймер", "Paragon", 700, false);
-        ZipHolod zip11 = new ZipHolod("Таймер", "Samsung", 480, false);
+        ZipHolod zip9 = new ZipHolod("Компрессор", "Danfoss", 4500, true);
+        ZipHolod zip10 = new ZipHolod("Таймер", "Paragon", 700, true);
+        ZipHolod zip11 = new ZipHolod("Таймер", "Samsung", 480, true);
         ArrayList<ZipHolod> zipList = new ArrayList<>();
         zipList.add(zip1);
         zipList.add(zip2);
@@ -31,7 +31,8 @@ public class Main {
         for (ZipHolod a : zipList) {
             System.out.println(a);
         }
-        System.out.println("Вывод сортированного массива \n \n");
+
+        System.out.println("\n\n  Вывод сортированного массива по полю производитель  \n\n");
      //   PriceComparator priceComparator = new PriceComparator();
 
         zipList.sort(new ManufacturerComparator());
@@ -41,7 +42,8 @@ public class Main {
         Iterator<ZipHolod> iterator = zipList.iterator();
         while (iterator.hasNext()) {
             ZipHolod zip = iterator.next();
-            if (!zip.getName().equals(nameSearch)) {
+            if (!zip.getName().equals(nameSearch) || !zip.isАvailability()) {
+           //     !zip.getName().equals(nameSearch)  &&
                 iterator.remove();
             }
         }
