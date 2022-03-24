@@ -1,13 +1,13 @@
 public class ZipHolod {
     private String name;
     private String manufacturer;
-    private int prodnumb;
+    private Integer price;
     private boolean аvailability;
 
-    public ZipHolod(String name, String manufacturer, int prodnumb, boolean аvailability) {
+    public ZipHolod(String name, String manufacturer, int price, boolean аvailability) {
         this.name = name;
         this.manufacturer = manufacturer;
-        this.prodnumb = prodnumb;
+        this.price = price;
         this.аvailability = аvailability;
     }
 
@@ -19,8 +19,8 @@ public class ZipHolod {
         return manufacturer;
     }
 
-    public int getProdnumb() {
-        return prodnumb;
+    public int getPrice() {
+        return price;
     }
 
     public boolean isАvailability() {
@@ -35,8 +35,8 @@ public class ZipHolod {
         this.manufacturer = manufacturer;
     }
 
-    public void setProdnumb(int prodnumb) {
-        this.prodnumb = prodnumb;
+    public void setPrice(int price) {
+        this.price = price;
     }
 
     public void setАvailability(boolean аvailability) {
@@ -45,6 +45,6 @@ public class ZipHolod {
 
     public String toString() {
         return "Наименование " + name  + "  Производитель " + manufacturer +
-                " Номер " + prodnumb + " Наличие " + аvailability;
+                " Номер " + price + " Наличие " + аvailability;
     }
 }

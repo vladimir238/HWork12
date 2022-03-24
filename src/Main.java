@@ -1,24 +1,59 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-        List<ZipHolod> zip = new ArrayList<>();
-        zip.add(new ZipHolod("Термостат","Danfoss",592534,false));
-        zip.add(new ZipHolod("Термостат","Danfoss",591345,false));
-        zip.add(new ZipHolod("Термостат","Atea",500644,false));
-        zip.add(new ZipHolod("Термостат","Atea",592587,false));
-        zip.add(new ZipHolod("Компрессор","Secop",60014056,false));
-        zip.add(new ZipHolod("Компрессор","Secop",60009089,false));
-        zip.add(new ZipHolod("Компрессор","Danfoss",13416067,false));
-        zip.add(new ZipHolod("Компрессор","Danfoss",60014089,false));
-        zip.add(new ZipHolod("Компрессор","Danfoss",60020087,false));
-        zip.add(new ZipHolod("Таймер","Paragon",12387,false));
-        zip.add(new ZipHolod("Таймер","Samsung",13498,false));
-        for (ZipHolod a: zip){
+
+        String nameSearch = "Термостат";
+        ZipHolod zip1 = new ZipHolod("Термостат", "Danfoss", 350, false);
+        ZipHolod zip2 = new ZipHolod("Термостат", "Danfoss", 350, false);
+        ZipHolod zip3 = new ZipHolod("Термостат", "Atea", 400, false);
+        ZipHolod zip4 = new ZipHolod("Термостат", "Atea", 250, false);
+        ZipHolod zip5 = new ZipHolod("Компрессор", "Secop", 3600, false);
+        ZipHolod zip6 = new ZipHolod("Компрессор", "Secop", 3600, false);
+        ZipHolod zip7 = new ZipHolod("Компрессор", "Danfoss", 3100, false);
+        ZipHolod zip8 = new ZipHolod("Компрессор", "Danfoss", 2800, false);
+        ZipHolod zip9 = new ZipHolod("Компрессор", "Danfoss", 4500, false);
+        ZipHolod zip10 = new ZipHolod("Таймер", "Paragon", 700, false);
+        ZipHolod zip11 = new ZipHolod("Таймер", "Samsung", 480, false);
+        ArrayList<ZipHolod> zipList = new ArrayList<>();
+        zipList.add(zip1);
+        zipList.add(zip2);
+        zipList.add(zip3);
+        zipList.add(zip4);
+        zipList.add(zip5);
+        zipList.add(zip6);
+        zipList.add(zip7);
+        zipList.add(zip8);
+        zipList.add(zip9);
+        zipList.add(zip10);
+        zipList.add(zip11);
+
+        for (ZipHolod a : zipList) {
             System.out.println(a);
         }
+        System.out.println("Вывод сортированного массива \n \n");
+     //   PriceComparator priceComparator = new PriceComparator();
 
+        zipList.sort(new ManufacturerComparator());
+        for (ZipHolod a : zipList) {
+            System.out.println(a);
+        }
+        Iterator<ZipHolod> iterator = zipList.iterator();
+        while (iterator.hasNext()) {
+            ZipHolod zip = iterator.next();
+            if (!zip.getName().equals(nameSearch)) {
+                iterator.remove();
+            }
+        }
+
+        System.out.println("\n\n\n");
+
+
+        zipList.sort(new PriceComparator());
+        Collections.sort(zipList,new PriceComparator());
+        for (ZipHolod a : zipList) {
+            System.out.println(a);
+        }
 
     }
 }
